@@ -1,10 +1,10 @@
 # Code guidelines
 
 ## Table of contents
-1. General
-2. HTML
-3. CSS
-4. PHP
+1. [General](GUIDELINES.md#general)
+2. [HTML](GUIDELINES.md#html)
+3. [CSS](GUIDELINES.md#css)
+4. [PHP](GUIDELINES.md#php)
 
 ## General 
 Indentation: 3 spaces<br>
@@ -61,6 +61,8 @@ footer {
 }
 
 /* Classes */
+
+...
 
 /* IDs */
 ```
