@@ -3,8 +3,8 @@
 ## Table of contents
 1. [General](GUIDELINES.md#general)
 2. [HTML](GUIDELINES.md#html)
-3. [CSS](GUIDELINES.md#css)
-4. [PHP](GUIDELINES.md#php)
+3. [PHP](GUIDELINES.md#php)
+4. [CSS](GUIDELINES.md#css)
 
 ## General 
 Indentation: 3 spaces<br>
