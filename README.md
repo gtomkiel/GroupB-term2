@@ -10,7 +10,10 @@ A NHL Stenden student school management system project requested by a primary sc
 
 ## Instalation guide
 1. Clone the repository
-2. Run this command
+```
+git clone git@github.com:gtomkiel/GroupB-term2.git
+```
+2. Start the docker container
 ```
 docker-compose up
 ```
