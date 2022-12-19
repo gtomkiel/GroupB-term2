@@ -46,3 +46,8 @@ input[type="submit"]{
   font-size:20px;
   font-weight:700;
 }
+
+#gridContainer{
+   grid-template-columns: repeat(6,1fr);
+   display: grid;
+}
