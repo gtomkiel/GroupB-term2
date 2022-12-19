@@ -3,6 +3,7 @@
    padding: 0;
 }
 
+<<<<<<< HEAD
 #mainContainer{
    grid-template-columns: repeat(6,1fr);
    display: grid;
@@ -21,3 +22,9 @@
 	grid-column: 2/3;
 	display:grid
 }
+=======
+#gridContainer{
+   grid-template-columns: repeat(6,1fr);
+   display: grid;
+}
+>>>>>>> a1cc5f0247cd80709dc32632b740ff5c165908ca
