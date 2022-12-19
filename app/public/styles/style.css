@@ -15,13 +15,13 @@ footer{
    color: #fff;
 }
 
-img{
+.media{
    max-height: 30px;
 }
 
-a{
+.footerLink{
    text-decoration: none;
-   color:#fff;
+   color: #fff;
 }
 
 .contact{
@@ -42,7 +42,7 @@ a{
 }
 
 .copyRight{
-   justify-content:center ;
+   justify-content: center ;
    display: grid;
    grid-column: 4;
    font-size: 11px;
