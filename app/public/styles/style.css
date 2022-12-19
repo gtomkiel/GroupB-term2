@@ -2,3 +2,22 @@
    margin: 0;
    padding: 0;
 }
+
+#mainContainer{
+   grid-template-columns: repeat(6,1fr);
+   display: grid;
+}
+
+.welcome{
+	background: #331832;
+	color: #fff;
+	height: 30px;
+	display:grid;
+	align-items: center;
+	justify-content: center;
+}
+
+.lenny{
+	grid-column: 2/3;
+	display:grid
+}
