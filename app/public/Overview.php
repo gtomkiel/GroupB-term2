@@ -7,10 +7,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
-<body id="mainContainer">
-	<div class="lenny">
+<body id="gridContainer">
+	<div class="index">
 		<div class="welcome">
-			Welcome back ...
+			<b>Welcome back ...</b>
+		</div>
+	</div>
+	<div class="secondTextBox">
+		<div class="grades">
+			<b>Grades</b>
+		</div>
+	</div>
+	<div class="firstTextBox">
+		<div class="grades">
+			<b>Absences</b>
 		</div>
 	</div>
 </body>
