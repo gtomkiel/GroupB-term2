@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 	<title>Document</title>
 </head>
-<body id="mainContainer">
+<body id="gridContainer">
 	<footer>
 		<div class="contact">
 			<b>Contact</b>
