@@ -2,3 +2,67 @@
    margin: 0;
    padding: 0;
 }
+
+#mainContainer{
+   grid-template-columns: repeat(6,1fr);
+   display: grid;
+}
+
+footer{
+   display: grid;
+   grid-column: 1/7;
+   background-color: #62929E;
+   color: #fff;
+}
+
+img{
+   max-height: 30px;
+}
+
+a{
+   text-decoration: none;
+   color:#fff;
+}
+
+.contact{
+   margin: 20px 0px 5px 20px;
+}
+
+.address{
+   grid-column-start: 1;
+   margin-left: 20px;
+   margin-bottom: 20px;
+   margin-top: 10px;
+}
+
+.contactDetails{
+   grid-column-start: 1;
+   margin-left: 20px;
+   margin-bottom: 20px;
+}
+
+.copyRight{
+   justify-content:center ;
+   display: grid;
+   grid-column: 4;
+   font-size: 11px;
+   align-items: flex-end;
+   margin-bottom: 20px;
+}
+
+.findUs{
+   display: grid;
+   grid-column: 7;
+   align-items: center;
+}
+
+.img{
+   justify-content: space-between;
+   display: flex;
+   max-width: 120px;
+}
+
+.text{
+   width: 200px;
+   margin-top: 20px;
+}
