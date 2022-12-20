@@ -14,7 +14,7 @@ img{
 
 #gridContainer{
    grid-template-columns: repeat(6,1fr);
-   grid-template-rows: 6,1fr;
+   grid-template-rows: repeat(6,1fr);
    display: grid;
 }
 
