@@ -8,7 +8,7 @@
 	<title>Document</title>
 </head>
 <body id="gridContainer">
-	<footer>
+   <footer>
 		<div class="contact">
 			<b>Contact</b>
 		</div>
