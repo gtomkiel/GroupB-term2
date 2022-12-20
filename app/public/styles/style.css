@@ -17,6 +17,50 @@ img{
    grid-column: 2/4;
  }
 
+body{
+   font-family: Arial, Helvetica, Verdana, sans-serif;
+   font-size: 1em;
+   background-color: #F0F7F4;
+}
+
+form{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+input[type="text"], input[type="password"]{
+   width: 90%;
+   padding: 15px;
+   display: flex;
+   margin: 10px;
+   border: 1px solid #62929E;
+   background-color: #F0F7F4;
+   font-size: 15px;
+   font-weight: 700;
+}
+
+input[type="submit"]{
+   background-color: #331832;
+   color: white;
+   height: 40px;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 0px 10px 0px 10px;
+   border: none;
+}
+
+::placeholder{
+   color: #62929E;
+}
+
+.formInput{
+   display: grid;
+   grid-column: 3/5;
+   margin-top: 30vh;
+}
+
 #gridContainer{
    grid-template-columns: repeat(6,1fr);
    display: grid;
@@ -25,7 +69,6 @@ img{
 #title{
    display:grid;
    grid-column: 2/4;
-
    background-color:#331832;
    color:white;
    width:300px;
@@ -55,4 +98,3 @@ img{
    margin-top: 20px;
    border: 1px solid #62929E;
 }
-
