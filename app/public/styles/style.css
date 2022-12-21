@@ -36,7 +36,7 @@ header img{
 
 
 /* nav settings */
-header > ul{
+header > nav ul{
    grid-column: 4/7;
    list-style-type: none;
    display: flex;
@@ -45,7 +45,7 @@ header > ul{
 	width:300px;
 }
 
-ul{
+nav ul{
    display: flex;
    justify-content: space-between;
    align-items:flex-end;
@@ -54,4 +54,26 @@ ul{
    padding: 0 10px 0 0;
    height: 100%;
    font-size: 17px;
+}
+
+/*Main*/
+
+.info{
+	grid-column:1/5;
+}
+
+.info ul{
+
+	list-style-type:none;
+	color:#F1ECCE;
+	display:flex;
+	justify-content:space-between;
+	width:200px;
+	margin-left:50px;
+}
+
+.info li{
+	background-color:#331832;
+	padding:10px 140px 10px 10px;
+	margin:50px 10px 10px 20px;
 }
