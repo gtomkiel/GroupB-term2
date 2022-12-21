@@ -13,15 +13,19 @@
 			<b>Welcome back ...</b>
 		</div>
 	</div>
-	<div class="secondTextBox">
-		<div class="grades">
-			<b>Grades</b>
-		</div>
-	</div>
 	<div class="firstTextBox">
-		<div class="grades">
-			<b>Absences</b>
-		</div>
+		<a href="#">
+			<div class="grades">
+				<b>Grades</b>
+			</div>
+		</a>
+	</div>
+	<div class="secondTextBox">
+		<a href="#">
+			<div class="grades">
+				<b>Absences</b>
+			</div>
+		</a>
 	</div>
 </body>
 </html>
