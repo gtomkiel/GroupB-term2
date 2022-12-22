@@ -41,7 +41,6 @@
 	display: grid;
 	justify-content: center;
 	height: 100px;
-	text-decoration: none;
 }
 
 .secondTextBox > a{
