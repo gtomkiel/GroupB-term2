@@ -109,6 +109,57 @@ footer {
    margin-top: 30vh;
 }
 
+.welcome{
+	background: #331832;
+	color: #fff;
+	height: 50px;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+   font-size: 20px
+}
+
+.index{
+	grid-column: 3/5;
+	display: grid;
+	margin-top: 20vh;
+}
+
+.firstTextBox{
+	grid-column: 3/5;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+}
+
+.firstTextBox > a{
+	text-decoration: none;
+}
+
+.secondTextBox{
+	grid-column: 3/5;
+	display: grid;
+	justify-content: center;
+	height: 100px;
+}
+
+.secondTextBox > a{
+	text-decoration: none;
+}
+
+.grades{
+	background-color: #D9D9D9;
+	width: 150px;
+	display: grid;
+	color: #331832;
+	justify-content: center;
+	font-size: 20px;
+	align-items: center;
+	height: 60px;
+	text-decoration: none;
+}
+
 #gridContainer {
    grid-template-columns: repeat(6,1fr);
    display: grid;
