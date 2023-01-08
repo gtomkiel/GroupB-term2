@@ -13,5 +13,6 @@
    <input type="submit" name="Add Event" id="addEvent" value="Add Event">
 	</form>
    </div>
+   <? require_once('footer.php'); ?>
 </body>
 </html>

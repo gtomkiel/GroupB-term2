@@ -37,5 +37,6 @@
 		<div class="emptyBox">
 		</div>
    </div>
+   <? require_once('footer.php'); ?>
 </body>
 </html>
