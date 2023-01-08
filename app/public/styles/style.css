@@ -7,16 +7,24 @@ body{
    font-family: Arial, Helvetica, Verdana, sans-serif;
    font-size: 1em;
    background-color: #F0F7F4;
+ }
+
+.schoolimg {
+   height: 250px;
+   width: 300px;
+   margin-top: 10px;
+   display: grid;
+   grid-column: 2/4;
 }
 
-form{
+form {
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"], input[type="password"] {
    width: 90%;
    padding: 15px;
    display: flex;
@@ -27,11 +35,7 @@ input[type="text"], input[type="password"]{
    font-weight: 700;
 }
 
-::placeholder{
-   color: #62929E;
-}
-
-input[type="submit"]{
+input[type="submit"] {
    background-color: #331832;
    color: white;
    height: 40px;
@@ -41,13 +45,149 @@ input[type="submit"]{
    border: none;
 }
 
-.formInput{
+::placeholder {
+   color: #62929E;
+}
+
+footer {
+   display: grid;
+   grid-column: 1/7;
+   background-color: #62929E;
+   color: #fff;
+}
+
+.media {
+   max-height: 30px;
+}
+
+.footerLink {
+   text-decoration: none;
+   color: #fff;
+}
+
+.contact {
+   margin: 20px 0px 5px 20px;
+}
+
+.address {
+   grid-column-start: 1;
+   margin-left: 20px;
+   margin-bottom: 20px;
+   margin-top: 10px;
+}
+
+.contactDetails {
+   grid-column-start: 1;
+   margin-left: 20px;
+   margin-bottom: 20px;
+}
+
+.copyRight {
+   justify-content: center ;
+   display: grid;
+   grid-column: 4;
+   font-size: 11px;
+   align-items: flex-end;
+   margin-bottom: 20px;
+}
+
+.findUs {
+   display: grid;
+   grid-column: 7;
+   align-items: center;
+}
+
+.formInput {
    display: grid;
    grid-column: 3/5;
    margin-top: 30vh;
 }
 
-#gridContainer{
+.welcome{
+	background: #331832;
+	color: #fff;
+	height: 50px;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+   font-size: 20px
+}
+
+.index{
+	grid-column: 3/5;
+	display: grid;
+	margin-top: 20vh;
+}
+
+.firstTextBox{
+	grid-column: 3/5;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+}
+
+.firstTextBox > a{
+	text-decoration: none;
+}
+
+.secondTextBox{
+	grid-column: 3/5;
+	display: grid;
+	justify-content: center;
+	height: 100px;
+}
+
+.secondTextBox > a{
+	text-decoration: none;
+}
+
+.grades{
+	background-color: #D9D9D9;
+	width: 150px;
+	display: grid;
+	color: #331832;
+	justify-content: center;
+	font-size: 20px;
+	align-items: center;
+	height: 60px;
+	text-decoration: none;
+}
+
+#gridContainer {
    grid-template-columns: repeat(6,1fr);
    display: grid;
+}
+
+#title {
+   display:grid;
+   grid-column: 2/4;
+   background-color:#331832;
+   color:white;
+   width:300px;
+   text-align: center;
+   height:50px;
+   align-content: center;
+   margin-top: 10px;
+}
+
+#content {
+   display:grid;
+   grid-column:2/4;
+}
+
+#box1 {
+   display:grid;
+   grid-column: 4/5;
+   width:500px;
+   margin-left:50px;
+   border: 1px solid #62929E;
+}
+
+#box2 {
+   display:grid;
+   grid-column: 2/5;
+   height:230px;
+   margin-top: 20px;
+   border: 1px solid #62929E;
 }
