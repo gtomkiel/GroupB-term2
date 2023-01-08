@@ -14,6 +14,7 @@
 
          <div id="box2"></div>
       </div>
+      <? require_once('footer.php'); ?>
    </body>
 </html>
 
