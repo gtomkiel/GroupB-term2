@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +16,7 @@
 <body id="gridContainer">
 	<div class="index">
 		<div class="welcome">
-			<b>Welcome back ...</b>
+         <b>Welcome back <?=$_SESSION['firstName']?></b>
 		</div>
 	</div>
 	<div class="firstTextBox">
