@@ -57,7 +57,7 @@ body{
 
 #Grades{
 	grid-column:1/7;
-	margin:0 110px 0 110px;
+	margin:0 110px 50px 110px;
 }
 
 td, th {
