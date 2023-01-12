@@ -1,21 +1,18 @@
 <?php
-	require_once("src/db/connect.php");
-	try{
-		$db= new PDO("mysql:host=mysql;dbname=project;charset=utf8","root","qwerty");//created a database connection
-	}
-	catch(Exception $ex){
-		echo $ex;
-	}
+	require_once("../../src/db/connect.php");
+
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Practice</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="src/styles/style.css">
+	<link rel="stylesheet" href="../../src/styles/style.css">
 </head>
 <body>
 	<div id="gridContainer">
+	<?php require_once('../../src/utils/header.php') ?>
 		<main class="registration">
 	<?php
 		$err=[];
@@ -175,6 +172,6 @@
 	?>
 		</main>
       </div>
-      <?php require_once('footer.php') ?>
+      <?php require_once('../../src/utils/footer.php') ?>
 </body>
 <html>
