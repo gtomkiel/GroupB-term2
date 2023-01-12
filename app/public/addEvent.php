@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link type="text/css" rel="stylesheet" href="styles/style.css">
+   <link type="text/css" rel="stylesheet" href="src/styles/style.css">
     <title>Add Event</title>
 </head>
 <body id="gridContainer">

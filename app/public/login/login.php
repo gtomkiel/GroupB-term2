@@ -1,6 +1,6 @@
 <?php
 
-require_once 'db/connect.php';
+require_once '../db/connect.php';
 
 session_start();
 
@@ -10,7 +10,7 @@ session_start();
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link type="text/css" rel="stylesheet" href="styles/style.css">
+   <link type="text/css" rel="stylesheet" href="../styles/style.css">
     <title>Login</title>
 </head>
 <body id="gridContainer">
@@ -41,15 +41,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    }
 
    if(!password_verify($password, $details['password'])) {
-      // Error
-      // ...
-      // do something about it
-      echo "error";
+      echo "Wrong email address or password!";
    } else {
-      // Success
-      // ...
-      // Check the account permissions
-      // Redirect to the overview page I guess
       $_SESSION["firstName"] = $details["firstName"];
       $_SESSION["accountType"] = $details["accountType"];
    }
