@@ -1,5 +1,5 @@
 <?php
-	require_once("db/connect.php");
+	require_once("src/db/connect.php");
 	try{
 		$db= new PDO("mysql:host=mysql;dbname=project;charset=utf8","root","qwerty");//created a database connection
 	}
@@ -12,7 +12,7 @@
 <head>
 	<title>Practice</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="src/styles/style.css">
 </head>
 <body>
 	<div id="gridContainer">
@@ -174,6 +174,7 @@
 		}
 	?>
 		</main>
-	</div>
+      </div>
+      <?php require_once('footer.php') ?>
 </body>
 <html>
