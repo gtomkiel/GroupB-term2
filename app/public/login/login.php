@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    $password = filter_input(INPUT_POST, "password");
 
    try {
-      $stmt = $db->prepare('SELECT firstName, password, accountType FROM Users WHERE email = :email');
+      $stmt = $db->prepare('SELECT * FROM Users WHERE email = :email');
       $stmt->bindParam(':email', $email, PDO::PARAM_STR);
       $stmt->execute();
 
@@ -21,8 +21,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    if(!password_verify($password, $details['password'])) {
       echo "Wrong email address or password!";
    } else {
+      $_SESSION["ID"] = $details["ID"];
       $_SESSION["firstName"] = $details["firstName"];
-      $_SESSION["accountType"] = $details["accountType"];
 
       header('Location: ../Overview.php');
       exit();
