@@ -2,6 +2,11 @@
 
 session_start();
 
+if($_SESSION == NULL) {
+	header('Location: login/index.php');
+	exit();
+}
+
 ?>
 
 <!DOCTYPE html>
