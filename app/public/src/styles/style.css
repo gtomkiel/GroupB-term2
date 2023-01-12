@@ -46,7 +46,6 @@ input[type="submit"] {
    margin-bottom: 10px;
 }
 
-
 footer {
    display: grid;
    grid-column: 1/7;
@@ -75,10 +74,6 @@ button{
 
 button > a{
 	color: white;
-}
-
-li {
-   display: inline-block;
 }
 
 ::placeholder {
@@ -112,7 +107,6 @@ li {
 }
 
 .copyRight {
-   justify-content: center ;
    display: grid;
    grid-column: 4;
    font-size: 11px;
@@ -126,18 +120,10 @@ li {
    align-items: center;
 }
 
-.formInput {
-   display: grid;
-   grid-column: 3/5;
-   justify-items: center
-
-
-}
-
 .welcome{
 	background: #331832;
 	color: #fff;
-	height: 50px;
+	height: 70px;
 	display: grid;
 	align-items: center;
 	justify-content: center;
@@ -146,8 +132,7 @@ li {
 
 .index{
 	grid-column: 3/5;
-	display: grid;
-	margin-top: 20vh;
+   margin-top: 20px;
 }
 
 .firstTextBox{
@@ -199,19 +184,24 @@ li {
    grid-column: 5/6;
 }
 
-.christmasContainer{
+.currentEventContainer{
    display: grid;
    grid-column: 2/4;
    grid-row: 2;
    height: 30px;
 }
 
-.christmas{
+.currentEvent{
    color: #331832;
    border-style: solid;
    border-color: #62929E;
    margin-top: 20px;
    height: 257px;
+   text-align: center;
+}
+
+.currentEvent h1, p {
+   margin-bottom: 10px;
 }
 
 .event{
@@ -304,10 +294,9 @@ header {
 
 
 .navigation {
-   font-size: 0.9em;
-   font-style: normal;
-   font-weight: 600;
-   margin: 0px;
+   margin-top: auto;
+   margin-bottom: auto;
+   font-weight: bold;
 }
 
 .nav-wrapper a:hover{
@@ -389,10 +378,9 @@ a.button {
 }
 
 #main{
-   grid-template-rows: repeat(2,1fr);
    display: grid;
    grid-column: 1/7;
-   margin-top: -400px;
+   margin-top: 20px;
 }
 
 #main > div{
@@ -400,3 +388,6 @@ a.button {
    margin-bottom: 20px;
 }
 
+#button {
+   background-color: #331832;
+}
