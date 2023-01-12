@@ -33,6 +33,14 @@ session_start();
 			</div>
 		</a>
 	</div>
+	<div class="secondTextBox">
+		<a href="registrationPage.php">
+			<div class="grades">
+				<b>Resgister</b>
+			</div>
+		</a>
+	</div>
 	<? require_once('footer.php'); ?>
+
 </body>
 </html>

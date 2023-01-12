@@ -17,14 +17,15 @@ body {
 form {
    grid-column:3/5;
    display: flex;
+   display: grid;
    flex-direction: column;
    align-items: center;
    justify-content: center;
 }
 
-input[type="text"], input[type="password"], input[type="number"],textarea {
+input[type="text"], input[type="password"], select{
    width: 90%;
-   padding: 15px;
+   padding: 5px;
    display: flex;
    margin: 10px;
    border: 1px solid #62929E;
@@ -34,6 +35,7 @@ input[type="text"], input[type="password"], input[type="number"],textarea {
 }
 
 input[type="submit"] {
+	margin-top: 20px;
    background-color: #331832;
    color: white;
    height: 40px;
@@ -59,6 +61,20 @@ footer {
 
 a{
 	text-decoration: none;
+}
+
+button{
+	width:50px;
+	margin-top: 10px;
+   background-color: #331832;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 0px 10px 0px 10px;
+   border: none;
+}
+
+button > a{
+	color: white;
 }
 
 ::placeholder {
@@ -159,7 +175,6 @@ a{
 	display: grid;
 	color: #331832;
 	justify-content: center;
-	font-size: 20px;
 	align-items: center;
 	height: 60px;
 	text-decoration: none;
@@ -264,6 +279,11 @@ a{
    grid-column: 2/4;
 }
 
+.registration{
+	display: grid;
+	grid-column: 2/6;
+}
+
 #gridContainer {
    grid-template-columns: repeat(6,1fr);
    display: grid;
@@ -314,3 +334,4 @@ a{
 	height: 450px;
    margin-bottom: 20px;
 }
+
