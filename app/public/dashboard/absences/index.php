@@ -26,6 +26,7 @@ if(!isset($_SESSION['ID'])) {
 			<div class="info">
 				<ul>	
 					<li><?=$_SESSION['firstName']." ".$_SESSION['secondName']?></li>
+					<li><a href="/dashboard/">Go back</a></li>
 				</ul>
 			</div>
 			

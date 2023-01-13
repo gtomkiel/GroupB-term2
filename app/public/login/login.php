@@ -4,6 +4,11 @@ require_once '../src/db/connect.php';
 
 session_start();
 
+if(!isset($_SESSION['ID'])) {
+   header('Location: /login/');
+   exit();
+}
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
    if($_POST["email"] == NULL && $_POST["password"] == NULL) {
       echo "Missing email address or password";

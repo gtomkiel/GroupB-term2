@@ -1,8 +1,13 @@
 <?php
 
-require_once('../../src/db/connect.php');
+require_once('../../../src/db/connect.php');
 
 session_start();
+
+if(!isset($_SESSION['ID'])) {
+    header('Location: /login/');
+    exit();
+}
 
 ?>
 
@@ -16,7 +21,7 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="/src/styles/style.css">
 </head>
 <body id="gridContainer">
-	<? require_once('../../src/utils/header.php'); ?>
+	<? require_once('../../../src/utils/header.php'); ?>
 	<div class="index">
 		<div class="welcome">
          <b>Absence insertion</b>
@@ -28,9 +33,12 @@ session_start();
 			<input type="text" name="secondName" id="secondName" placeholder="Student Second Name">
 			<input type="text" name="date" id="date" placeholder="Date">
 			<input type="submit" name="Add Absence" id="addAbsence" value="Add Absence">
+			<div class="button2">
+				<a href="index.php">Back</a>
+			</div>
 		</div>
 	</form>
-	<? require_once('../../src/utils/footer.php'); ?>
+	<? require_once('../../../src/utils/footer.php'); ?>
 </body>
 </html>
 
