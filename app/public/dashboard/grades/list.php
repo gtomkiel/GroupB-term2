@@ -1,3 +1,11 @@
+<?php
+
+require_once '../../src/db/connect.php';
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,26 +13,41 @@
 	<title>Grades</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link type="text/css" rel="stylesheet" href="../../src/styles/style.css">
+	<link type="text/css" rel="stylesheet" href="/src/styles/style.css">
 </head>
 	<body>
 		<div id="gridContainer">
-			<?php require_once('/src/utils/header.php') ?>
+			<?php require_once('../../src/utils/header.php') ?>
 			<div class="info">
 				<ul>	
-					<li>Student:</li>
-					<li>Class:</li>
+					<li><?=$_SESSION['firstName']." ".$_SESSION['secondName']?></li>
 				</ul>
 			</div>
 			
 			<table id="Grades">
 			<tr>
 				<th>Subject</th>
-				<th>Date of assignment</th>
 				<th>Grade</th>
 				<th>Notes</th>
 			</tr>
-			<?php require_once('/src/utils/footer.php') ?>
+			<?php 
+			
+			$stmt = $db->prepare('SELECT * from Grades WHERE studentID = :id');
+			$stmt->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
+			$stmt->execute();
+			$grades = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+			foreach ($grades as $grade) {
+				echo "	<tr>
+							<th>".$grade['subjectID']."</th>
+							<th>".$grade['mark']."</th>
+							<th>".$grade['note']."</th>
+						</tr>";
+			}
+
+			require_once('../../src/utils/footer.php'); 
+			
+			?>
 		</div>
 	</body>	
 </html>

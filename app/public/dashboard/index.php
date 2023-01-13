@@ -23,13 +23,13 @@ session_start();
 		</div>
 	</div>
 	<div class="firstTextBox">
-		<a href="#">
+		<a href="grades/">
 			<div class="grades">
 				<b>Grades</b>
 			</div>
 		</a>
 	</div>
-	<div class="secondTextBox">
+	<div class="firstTextBox">
 		<a href="#">
 			<div class="grades">
 				<b>Absences</b>
@@ -45,10 +45,18 @@ session_start();
 	$type = $stmt->fetch(PDO::FETCH_ASSOC);
 
 	if($type['accountType'] == 'Admin') {
-		echo '	<div class="secondTextBox">
+		echo '	<div class="firstTextBox">
 					<a href="register/">
 						<div class="grades">
 							<b>Register</b>
+						</div>
+					</a>
+				</div>';
+
+		echo '	<div class="firstTextBox">
+					<a href="events/">
+						<div class="grades">
+							<b>Events</b>
 						</div>
 					</a>
 				</div>';
