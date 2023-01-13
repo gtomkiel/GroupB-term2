@@ -11,9 +11,9 @@
 	</div>
 	<div class="findUs">
 		<div class="img">
-			<a href="https://www.instagram.com/" class="footerLink"><img src="../src/img/instagram.png" alt="Instagram logo" class="media"></a>     
-			<a href="https://www.facebook.com/" class="footerLink"><img src="../src/img/facebook.png" alt="Facebook logo" class="media"> </a>
-			<a href="https://www.whatsapp.com/" class="footerLink"><img src="../src/img/whatsapp.png" alt="Whatsapp logo" class="media"></a>
+			<a href="https://www.instagram.com/" class="footerLink"><img src="/src/img/instagram.png" alt="Instagram logo" class="media"></a>     
+			<a href="https://www.facebook.com/" class="footerLink"><img src="/src/img/facebook.png" alt="Facebook logo" class="media"> </a>
+			<a href="https://www.whatsapp.com/" class="footerLink"><img src="/src/img/whatsapp.png" alt="Whatsapp logo" class="media"></a>
 		</div>
 	</div>
 	<div class="contactDetails">

@@ -76,6 +76,17 @@ button > a{
 	color: white;
 }
 
+td, th {
+	height:60px;
+}
+
+table, th, td {
+	border-width:2px;
+	background: #D9D9D9;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
 ::placeholder {
    color: #62929E;
 }
@@ -338,6 +349,45 @@ a.button {
    color: white;
 }
 
+.info{
+	grid-column:1/5;
+}
+
+.info ul{
+	list-style-type:none;
+	color:#F1ECCE;
+	display:flex;
+	justify-content:space-between;
+	width:200px;
+	margin-left:50px;
+}
+
+.info li{
+	background-color:#331832;
+	padding:10px 140px 10px 10px;
+	margin:50px 10px 10px 20px;
+}
+
+.info2{
+	grid-column:1/5;
+   margin-left: 40px;
+}
+
+.info2 ul{
+	list-style-type:none;
+	color:#F1ECCE;
+	display:flex;
+	justify-content:space-between;
+	width:200px;
+	margin-left:50px;
+}
+
+.info2 li{
+	background-color:#331832;
+	padding:10px 140px 10px 10px;
+	margin:50px 10px 10px 20px;
+}
+
 #gridContainer {
    grid-template-columns: repeat(6,1fr);
    display: grid;
@@ -390,4 +440,9 @@ a.button {
 
 #button {
    background-color: #331832;
+}
+
+#Grades{
+	grid-column:1/7;
+	margin:0 110px 50px 110px;
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link type="text/css" rel="stylesheet" href="../src/styles/style.css">
+   <link type="text/css" rel="stylesheet" href="/src/styles/style.css">
    <title>Home</title>
 </head>
 <body id="gridContainer">
@@ -17,7 +17,7 @@
 			</div>
 		</div> 
 		<div class="schoolKid"> 
-			<img class="img" src="../src/img/school 1.png" alt="Boy in class">  
+			<img class="img" src="/src/img/school 1.png" alt="Boy in class">  
 		</div>
 		<div class="eventBox">
 			<a href="#" class="event">
