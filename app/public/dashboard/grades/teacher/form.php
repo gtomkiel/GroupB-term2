@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../src/db/connect.php');
+require_once('../../../src/db/connect.php');
 
 session_start();
 
@@ -16,7 +16,7 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="/src/styles/style.css">
 </head>
 <body id="gridContainer">
-	<? require_once('../../src/utils/header.php'); ?>
+	<? require_once('../../../src/utils/header.php'); ?>
 	<div class="index">
 		<div class="welcome">
          <b>Grade insertion</b>
@@ -29,9 +29,12 @@ session_start();
 			<input type="text" name="mark" id="mark" placeholder="Mark">
 			<input type="text" name="note" id="note" placeholder="Note">
 			<input type="submit" name="Add Grade" id="addGrade" value="Add">
+			<div class="button2">
+				<a href="index.php">Back</a>
+			</div>
 		</div>
 	</form>
-	<? require_once('../../src/utils/footer.php'); ?>
+	<? require_once('../../../src/utils/footer.php'); ?>
 </body>
 </html>
 
