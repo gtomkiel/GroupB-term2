@@ -13,35 +13,36 @@ if(!isset($_SESSION['ID'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Form</title>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="/src/styles/style.css">
-</head>
-<body id="gridContainer">
-	<? require_once('../../../src/utils/header.php'); ?>
-	<div class="index">
-		<div class="welcome">
-         <b>Grade insertion</b>
-		</div>
-	</div>
-	<form action="form.php" method="POST">
-		<div class="formInput">
-			<input type="text" name="firstName" id="firstName" placeholder="Student First Name">
-			<input type="text" name="secondName" id="secondName" placeholder="Student Second Name">
-			<input type="text" name="mark" id="mark" placeholder="Mark">
-			<input type="text" name="note" id="note" placeholder="Note">
-			<input type="submit" name="Add Grade" id="addGrade" value="Add">
-			<div class="button2">
-				<a href="index.php">Back</a>
-			</div>
-		</div>
-	</form>
-	<? require_once('../../../src/utils/footer.php'); ?>
-</body>
+   <head>
+      <title>Grades</title>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" type="text/css" href="/src/styles/style.css" />
+   </head>
+   <body id="gridContainer">
+      <? require_once('../../../src/utils/header.php'); ?>
+      <div class="index">
+         <div class="welcome">
+            <b>Grade insertion</b>
+         </div>
+      </div>
+      <form action="form.php" method="POST">
+         <div class="formInput">
+            <input type="text" name="firstName" id="firstName" placeholder="Student First Name" />
+            <input type="text" name="secondName" id="secondName" placeholder="Student Second Name" />
+            <input type="text" name="mark" id="mark" placeholder="Mark" />
+            <input type="text" name="note" id="note" placeholder="Note" />
+            <input type="submit" name="Add Grade" id="addGrade" value="Add" />
+            <div class="button2">
+               <a href="index.php">Back</a>
+            </div>
+         </div>
+      </form>
+      <? require_once('../../../src/utils/footer.php'); ?>
+   </body>
 </html>
+
 
 <?php
 

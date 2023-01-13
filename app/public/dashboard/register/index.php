@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Practice</title>
+	<title>Register account</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../../src/styles/style.css">
 </head>
@@ -178,5 +178,5 @@
 		</main>
       </div>
       <?php require_once('../../src/utils/footer.php') ?>
-</body>
-<html>
+   </body>
+</html>
