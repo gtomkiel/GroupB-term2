@@ -30,7 +30,7 @@ session_start();
 		</a>
 	</div>
 	<div class="firstTextBox">
-		<a href="#">
+		<a href="absences/">
 			<div class="grades">
 				<b>Absences</b>
 			</div>
