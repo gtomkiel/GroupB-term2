@@ -351,6 +351,7 @@ a.button {
 
 .info{
 	grid-column:1/5;
+   margin-left: 40px;
 }
 
 .info ul{

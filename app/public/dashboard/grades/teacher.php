@@ -1,3 +1,16 @@
+<?php
+
+require_once('../../src/db/connect.php');
+
+session_start();
+
+$query = $db->prepare('SELECT subjectName from Subjects WHERE userID = :id');
+$query->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
+$query->execute();
+$subject = $query->fetch(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,20 +25,34 @@
 			<?php require_once('../../src/utils/header.php');?>
 			<div class="info2">
 				<ul>	
-					<li>Student:</li>
-					<li>Class:</li>
+					<li><?=$subject['subjectName']?></li>
 				</ul>
 			</div>
 			
 			<table id="Grades">
 			<tr>
 				<th>Student</th>
-				<th>Subject</th>
-				<th>Date of assignment</th>
 				<th>Grade</th>
 				<th>Notes</th>
 			</tr>
-			<?php require_once('../../src/utils/footer.php'); ?>
+			<?php 
+			
+			$stmt = $db->prepare('SELECT * from Grades WHERE teacherID = :id');
+			$stmt->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
+			$stmt->execute();
+			$grades = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+			foreach ($grades as $grade) {
+				echo "	<tr>
+							<th>".$grade['studentID']."</th>
+							<th>".$grade['mark']."</th>
+							<th>".$grade['note']."</th>
+						</tr>";
+			}
+
+			require_once('../../src/utils/footer.php'); 
+			
+			?>
 		</div>
 	</body>
 </html>
