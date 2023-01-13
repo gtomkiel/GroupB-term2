@@ -4,6 +4,11 @@ require_once '../src/db/connect.php';
 
 session_start();
 
+if(!isset($_SESSION['ID'])) {
+    header('Location: /login/');
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -22,20 +27,6 @@ session_start();
          <b>Welcome <?=$_SESSION['firstName']?> <?=$_SESSION['secondName']?>!</b>
 		</div>
 	</div>
-	<div class="firstTextBox">
-		<a href="grades/">
-			<div class="grades">
-				<b>Grades</b>
-			</div>
-		</a>
-	</div>
-	<div class="firstTextBox">
-		<a href="absences/">
-			<div class="grades">
-				<b>Absences</b>
-			</div>
-		</a>
-	</div>
 	<?php
 
 	$stmt = $db->prepare('SELECT accountType FROM Users WHERE ID = :id');
@@ -43,6 +34,42 @@ session_start();
 	$stmt->execute();
 
 	$type = $stmt->fetch(PDO::FETCH_ASSOC);
+
+	if($type['accountType'] == 'Parent') {
+		echo '	<div class="firstTextBox">
+					<a href="grades/">
+						<div class="grades">
+							<b>Grades</b>
+						</div>
+					</a>
+				</div>';
+
+		echo '	<div class="firstTextBox">
+					<a href="absences/">
+						<div class="grades">
+							<b>Absences</b>
+						</div>
+					</a>
+				</div>';
+	}
+
+	if($type['accountType'] == 'Teacher') {
+		echo '	<div class="firstTextBox">
+					<a href="grades/teacher/">
+						<div class="grades">
+							<b>Grades</b>
+						</div>
+					</a>
+				</div>';
+
+		echo '	<div class="firstTextBox">
+					<a href="absences/teacher">
+						<div class="grades">
+							<b>Absences</b>
+						</div>
+					</a>
+				</div>';
+	}
 
 	if($type['accountType'] == 'Admin') {
 		echo '	<div class="firstTextBox">

@@ -4,64 +4,56 @@ require_once '../../src/db/connect.php';
 
 session_start();
 
+if(!isset($_SESSION['ID'])) {
+    header('Location: /login/');
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Overview Page</title>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="/src/styles/style.css">
+	<title>Grades</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type="text/css" rel="stylesheet" href="/src/styles/style.css">
 </head>
-<body id="gridContainer">
-	<?php require_once('../../src/utils/header.php') ?>
-	<div class="index">
-		<div class="welcome">
-         <b>Grades Page</b>
+	<body>
+		<div id="gridContainer">
+			<?php require_once('../../src/utils/header.php') ?>
+			<div class="info">
+				<ul>	
+					<li><?=$_SESSION['firstName']." ".$_SESSION['secondName']?></li>
+					<li><a href="/dashboard/">Go back</a></li>
+				</ul>
+			</div>
+			
+			<table id="Grades">
+			<tr>
+				<th>Subject</th>
+				<th>Grade</th>
+				<th>Notes</th>
+			</tr>
+			<?php 
+			
+			$stmt = $db->prepare('SELECT Grades.mark, Grades.note, Subjects.subjectName FROM Grades INNER JOIN Subjects ON Grades.subjectID = Subjects.ID WHERE studentID = :id');
+			$stmt->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
+			$stmt->execute();
+			$grades = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+			foreach ($grades as $grade) {
+				echo "	<tr>
+							<th>".$grade['subjectName']."</th>
+							<th>".$grade['mark']."</th>
+							<th>".$grade['note']."</th>
+						</tr>";
+			}
+
+			require_once('../../src/utils/footer.php'); 
+			
+			?>
 		</div>
-	</div>
-	<?php
-
-	$stmt = $db->prepare('SELECT accountType FROM Users WHERE ID = :id');
-	$stmt->bindParam(':id', $_SESSION['ID'], PDO::PARAM_STR);
-	$stmt->execute();
-
-	$type = $stmt->fetch(PDO::FETCH_ASSOC);
-
-	if($type['accountType'] == 'Parent') {
-		echo '	<div class="firstTextBox">
-					<a href="list.php">
-						<div class="grades">
-							<b>List</b>
-						</div>
-					</a>
-				</div>';
-	}
-
-	if($type['accountType'] == 'Teacher') {
-		echo '	<div class="firstTextBox">
-					<a href="teacher.php">
-						<div class="grades">
-							<b>List</b>
-						</div>
-					</a>
-				</div>';
-	}
-
-	if($type['accountType'] == 'Teacher' || $type['accountType'] == 'Admin') {
-	echo '	<div class="firstTextBox">
-				<a href="form.php">
-					<div class="grades">
-						<b>Add</b>
-					</div>
-				</a>
-			</div>';
-	}
-
-	require_once('../../src/utils/footer.php'); 
-	
-	?>
-</body>
+	</body>	
 </html>
