@@ -1,9 +1,0 @@
-*{
-   margin: 0;
-   padding: 0;
-}
-
-#gridContainer{
-   grid-template-columns: repeat(6,1fr);
-   display: grid;
-}
