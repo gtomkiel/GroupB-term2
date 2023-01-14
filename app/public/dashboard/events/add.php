@@ -48,11 +48,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    $date = filter_input(INPUT_POST,"date");
 
    if(empty($name)) {
-      $err[]="Please enter your secondname<br>";
+      $err[]="Please enter name<br>";
    }
 
    if(empty($date)) {
-      $err[]="Please enter your secondname<br>";
+      $err[]="Please enter date<br>";
    }
 
    if(count($err)>0) {

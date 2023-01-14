@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Jan 08, 2023 at 11:21 AM
+-- Generation Time: Jan 14, 2023 at 10:28 PM
 -- Server version: 10.9.3-MariaDB-1:10.9.3+maria~ubu2204
 -- PHP Version: 8.0.24
 
@@ -31,7 +31,7 @@ CREATE TABLE `Attendance` (
   `ID` int(11) NOT NULL,
   `studentID` int(11) NOT NULL,
   `subjectID` int(11) NOT NULL,
-  `date` date NOT NULL
+  `date` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -42,8 +42,8 @@ CREATE TABLE `Attendance` (
 
 CREATE TABLE `Events` (
   `ID` int(11) NOT NULL,
-  `name` int(11) NOT NULL,
-  `date` int(11) NOT NULL
+  `name` varchar(11) NOT NULL,
+  `date` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -73,6 +73,13 @@ CREATE TABLE `Subjects` (
   `userID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `Subjects`
+--
+
+INSERT INTO `Subjects` (`ID`, `subjectName`, `userID`) VALUES
+(1, 'subject name', 4);
+
 -- --------------------------------------------------------
 
 --
@@ -91,6 +98,15 @@ CREATE TABLE `Users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `Users`
+--
+
+INSERT INTO `Users` (`ID`, `firstName`, `secondName`, `address`, `phone`, `email`, `password`, `accountType`) VALUES
+(1, 'Example', 'Admin', 'address', 'phone', 'admin', '$2y$10$Fq59zKOeZ2RqR.eXnOkaZe5aIql9ZBjLHkkZq0SKp9.NwuwhLJVmO', 'Admin'),
+(2, 'Example', 'Parent', 'addr', 'phone', 'parent', '$2y$10$Fq59zKOeZ2RqR.eXnOkaZe5aIql9ZBjLHkkZq0SKp9.NwuwhLJVmO', 'Parent'),
+(4, 'Example', 'Teacher', 'addr', 'tel', 'teacher', '$2y$10$Fq59zKOeZ2RqR.eXnOkaZe5aIql9ZBjLHkkZq0SKp9.NwuwhLJVmO', 'Teacher');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -99,7 +115,8 @@ CREATE TABLE `Users` (
 --
 ALTER TABLE `Attendance`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `studentID` (`studentID`);
+  ADD KEY `studentID` (`studentID`),
+  ADD KEY `subjectID` (`subjectID`);
 
 --
 -- Indexes for table `Events`
@@ -137,31 +154,31 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT for table `Attendance`
 --
 ALTER TABLE `Attendance`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `Events`
 --
 ALTER TABLE `Events`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `Grades`
 --
 ALTER TABLE `Grades`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `Subjects`
 --
 ALTER TABLE `Subjects`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -172,7 +189,8 @@ ALTER TABLE `Users`
 --
 ALTER TABLE `Attendance`
   ADD CONSTRAINT `Attendance_ibfk_1` FOREIGN KEY (`studentID`) REFERENCES `Users` (`ID`),
-  ADD CONSTRAINT `Attendance_ibfk_2` FOREIGN KEY (`studentID`) REFERENCES `Subjects` (`ID`);
+  ADD CONSTRAINT `studentID` FOREIGN KEY (`studentID`) REFERENCES `Users` (`ID`),
+  ADD CONSTRAINT `subjectID` FOREIGN KEY (`subjectID`) REFERENCES `Subjects` (`ID`);
 
 --
 -- Constraints for table `Grades`

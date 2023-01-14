@@ -6,7 +6,7 @@
       <title>About Us</title>
    </head>
    <body id="gridContainer">
-      <?php require_once('../src/utils/header.php') ?>
+      <?php require_once('src/utils/header.php') ?>
       <div id="content">
          <h1 id="title">About Our School</h1>
          <img class="schoolimg" src="../src/img/school.jpg" alt="school" >
@@ -15,7 +15,7 @@
 
          <div id="box2"></div>
       </div>
-      <? require_once('../src/utils/footer.php'); ?>
+      <? require_once('src/utils/footer.php'); ?>
    </body>
 </html>
 

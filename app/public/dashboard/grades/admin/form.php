@@ -31,6 +31,7 @@ if(!isset($_SESSION['ID'])) {
 		<div class="formInput">
 			<input type="text" name="firstName" id="firstName" placeholder="Student First Name">
 			<input type="text" name="secondName" id="secondName" placeholder="Student Second Name">
+			<input type="text" name="subject" id="subject" placeholder="Subject">
 			<input type="text" name="mark" id="mark" placeholder="Mark">
 			<input type="text" name="note" id="note" placeholder="Note">
 			<input type="submit" name="Add Grade" id="addGrade" value="Add">
@@ -48,6 +49,7 @@ if(!isset($_SESSION['ID'])) {
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$firstName = filter_input(INPUT_POST,"firstName");
 	$secondName = filter_input(INPUT_POST,"secondName");
+	$subject = filter_input(INPUT_POST,"subject");
 	$mark = filter_input(INPUT_POST,"mark");
 	$note = filter_input(INPUT_POST,"note");
 	$err[] = NULL;
@@ -58,6 +60,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   
 	 if(empty($secondName)) {
 		$err[]="Please enter second name<br>";
+	 }
+
+	 if(empty($subject)) {
+		$err[]="Please enter subject<br>";
 	 }
 
 	 if(empty($mark)) {
@@ -83,21 +89,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	 } catch (Exception $e) {
 		echo $e;
 	 }
-	 
-	 try {
-		$subject = $db->prepare('SELECT ID from Subjects WHERE userID = :id');
-		$subject->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
-		$subject->execute();
-		$subjectDetails = $subject->fetch(PDO::FETCH_ASSOC);
-	 } catch (Exception $e) {
-		echo $e;
-	 }
 
 	 try {
 		$grade = $db->prepare('INSERT INTO Grades(mark, note, subjectID, studentID, teacherID) VALUES (:mark, :note, :subject, :student, :teacher)');
 		$grade->bindParam(':mark',$mark,PDO::PARAM_STR);
 		$grade->bindParam(':note',$note,PDO::PARAM_STR);
-		$grade->bindParam(':subject',$subjectDetails['ID'],PDO::PARAM_STR);
+		$grade->bindParam(':subject',$subject,PDO::PARAM_STR);
 		$grade->bindParam(':student',$studentDetails['ID'],PDO::PARAM_STR);
 		$grade->bindParam(':teacher',$_SESSION['ID'],PDO::PARAM_STR);
 		$grade->execute();

@@ -14,7 +14,7 @@ if(!isset($_SESSION['ID'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Form</title>
+	<title>Absences</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,16 +24,16 @@ if(!isset($_SESSION['ID'])) {
 	<? require_once('../../../src/utils/header.php'); ?>
 	<div class="index">
 		<div class="welcome">
-         <b>Grade insertion</b>
+         <b>Absence insertion</b>
 		</div>
 	</div>
 	<form action="form.php" method="POST">
 		<div class="formInput">
 			<input type="text" name="firstName" id="firstName" placeholder="Student First Name">
 			<input type="text" name="secondName" id="secondName" placeholder="Student Second Name">
-			<input type="text" name="mark" id="mark" placeholder="Mark">
-			<input type="text" name="note" id="note" placeholder="Note">
-			<input type="submit" name="Add Grade" id="addGrade" value="Add">
+			<input type="text" name="subject" id="subject" placeholder="Subject">
+			<input type="text" name="date" id="date" placeholder="Date">
+			<input type="submit" name="Add Absence" id="addAbsence" value="Add Absence">
 			<div class="button2">
 				<a href="index.php">Back</a>
 			</div>
@@ -48,31 +48,31 @@ if(!isset($_SESSION['ID'])) {
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$firstName = filter_input(INPUT_POST,"firstName");
 	$secondName = filter_input(INPUT_POST,"secondName");
-	$mark = filter_input(INPUT_POST,"mark");
-	$note = filter_input(INPUT_POST,"note");
+	$subject = filter_input(INPUT_POST,"subject");
+	$date = filter_input(INPUT_POST,"date");
 	$err[] = NULL;
 
-	if(empty($firstName)) {
+	if(empty($firstName)){
 		$err[]="Please enter first name<br>";
-	 }
-  
-	 if(empty($secondName)) {
+	}
+
+	if(empty($secondName)){
 		$err[]="Please enter second name<br>";
-	 }
+	}
 
-	 if(empty($mark)) {
-		$err[]="Please enter mark<br>";
-	 }
+	if(empty($subject)){
+		$err[]="Please enter subject<br>";
+	}
 
-	 if(empty($note)) {
-		$err[]="Please enter note<br>";
-	 }
-  
-	 if(count($err)>0) {
-		foreach($err as $error){
-		   echo "$error<br>";
+	if(empty($date)){
+		$err[]="Please enter date<br>";
+	}
+
+	if(count($err)>0){
+		foreach($err as $error) {
+			echo "$error<br>";
 		}
-	 }
+	}
 
 	try {
 		$student = $db->prepare('SELECT ID from Users WHERE firstName = :firstName AND secondName = :secondName');
@@ -82,26 +82,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$studentDetails = $student->fetch(PDO::FETCH_ASSOC);
 	 } catch (Exception $e) {
 		echo $e;
-	 }
-	 
-	 try {
-		$subject = $db->prepare('SELECT ID from Subjects WHERE userID = :id');
-		$subject->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
-		$subject->execute();
-		$subjectDetails = $subject->fetch(PDO::FETCH_ASSOC);
-	 } catch (Exception $e) {
-		echo $e;
-	 }
+	 }	
 
 	 try {
-		$grade = $db->prepare('INSERT INTO Grades(mark, note, subjectID, studentID, teacherID) VALUES (:mark, :note, :subject, :student, :teacher)');
-		$grade->bindParam(':mark',$mark,PDO::PARAM_STR);
-		$grade->bindParam(':note',$note,PDO::PARAM_STR);
-		$grade->bindParam(':subject',$subjectDetails['ID'],PDO::PARAM_STR);
-		$grade->bindParam(':student',$studentDetails['ID'],PDO::PARAM_STR);
-		$grade->bindParam(':teacher',$_SESSION['ID'],PDO::PARAM_STR);
-		$grade->execute();
+		$absence = $db->prepare('INSERT INTO Attendance(studentID, subjectID, date) VALUES (:student, :subject, :date)');
+		$absence->bindParam(':student',$studentDetails['ID'],PDO::PARAM_STR);
+		$absence->bindParam(':subject',$subject,PDO::PARAM_STR);
+		$absence->bindParam(':date',$date,PDO::PARAM_STR);
+		$absence->execute();
 	 } catch (Exception $e) {
 		echo $e;
-	 }
+	 }	
 }

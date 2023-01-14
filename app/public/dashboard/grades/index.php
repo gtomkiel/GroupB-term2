@@ -37,11 +37,15 @@ if(!isset($_SESSION['ID'])) {
 				<th>Notes</th>
 			</tr>
 			<?php 
-			
-			$stmt = $db->prepare('SELECT Grades.mark, Grades.note, Subjects.subjectName FROM Grades INNER JOIN Subjects ON Grades.subjectID = Subjects.ID WHERE studentID = :id');
-			$stmt->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
-			$stmt->execute();
-			$grades = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+			try {
+				$stmt = $db->prepare('SELECT Grades.mark, Grades.note, Subjects.subjectName FROM Grades INNER JOIN Subjects ON Grades.subjectID = Subjects.ID WHERE studentID = :id');
+				$stmt->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
+				$stmt->execute();
+				$grades = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			 } catch (Exception $e) {
+				echo $e;
+			 }
 
 			foreach ($grades as $grade) {
 				echo "	<tr>

@@ -9,10 +9,14 @@ if(!isset($_SESSION['ID'])) {
     exit();
 }
 
-$query = $db->prepare('SELECT subjectName from Subjects WHERE userID = :id');
-$query->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
-$query->execute();
-$subject = $query->fetch(PDO::FETCH_ASSOC);
+try {
+	$query = $db->prepare('SELECT subjectName from Subjects WHERE userID = :id');
+	$query->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
+	$query->execute();
+	$subject = $query->fetch(PDO::FETCH_ASSOC);
+ } catch (Exception $e) {
+	echo $e;
+ }
 
 ?>
 
@@ -43,11 +47,15 @@ $subject = $query->fetch(PDO::FETCH_ASSOC);
 				<th>Notes</th>
 			</tr>
 			<?php 
-			
-			$stmt = $db->prepare('SELECT Grades.mark, Grades.note, Users.firstName, Users.secondName FROM Grades INNER JOIN Users ON Grades.studentID = Users.ID WHERE teacherID = :id');
-			$stmt->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
-			$stmt->execute();
-			$grades = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+			try {
+				$stmt = $db->prepare('SELECT Grades.mark, Grades.note, Users.firstName, Users.secondName FROM Grades INNER JOIN Users ON Grades.studentID = Users.ID WHERE teacherID = :id');
+				$stmt->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
+				$stmt->execute();
+				$grades = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			 } catch (Exception $e) {
+				echo $e;
+			 }
 
 			foreach ($grades as $grade) {
 				echo "	<tr>

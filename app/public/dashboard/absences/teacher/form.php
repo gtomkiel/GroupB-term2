@@ -49,20 +49,50 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$secondName = filter_input(INPUT_POST,"secondName");
 	$date = filter_input(INPUT_POST,"date");
 
-	$student = $db->prepare('SELECT ID from Users WHERE firstName = :firstName AND secondName = :secondName');
-	$student->bindParam(':firstName',$firstName,PDO::PARAM_STR);
-	$student->bindParam(':secondName',$secondName,PDO::PARAM_STR);
-	$student->execute();
-	$studentDetails = $student->fetch(PDO::FETCH_ASSOC);
+	if(empty($firstName)){
+		$err[]="Please enter first name<br>";
+	}
 
-	$subject = $db->prepare('SELECT ID from Subjects WHERE userID = :id');
-	$subject->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
-	$subject->execute();
-	$subjectDetails = $subject->fetch(PDO::FETCH_ASSOC);
+	if(empty($secondName)){
+		$err[]="Please enter second name<br>";
+	}
 
-	$grade = $db->prepare('INSERT INTO Attendance(studentID, subjectID, date) VALUES (:student, :subject, :date)');
-	$grade->bindParam(':student',$studentDetails['ID'],PDO::PARAM_STR);
-	$grade->bindParam(':subject',$subjectDetails['ID'],PDO::PARAM_STR);
-    $grade->bindParam(':date',$date,PDO::PARAM_STR);
-	$grade->execute();
+	if(empty($date)){
+		$err[]="Please enter date<br>";
+	}
+
+	if(count($err)>0){
+		foreach($err as $error) {
+			echo "$error<br>";
+		}
+	}
+
+	try {
+		$student = $db->prepare('SELECT ID from Users WHERE firstName = :firstName AND secondName = :secondName');
+		$student->bindParam(':firstName',$firstName,PDO::PARAM_STR);
+		$student->bindParam(':secondName',$secondName,PDO::PARAM_STR);
+		$student->execute();
+		$studentDetails = $student->fetch(PDO::FETCH_ASSOC);
+	 } catch (Exception $e) {
+		echo $e;
+	 }	
+
+	 try {
+		$subject = $db->prepare('SELECT ID from Subjects WHERE userID = :id');
+		$subject->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
+		$subject->execute();
+		$subjectDetails = $subject->fetch(PDO::FETCH_ASSOC);
+	 } catch (Exception $e) {
+		echo $e;
+	 }	
+
+	 try {
+		$absence = $db->prepare('INSERT INTO Attendance(studentID, subjectID, date) VALUES (:student, :subject, :date)');
+		$absence->bindParam(':student',$studentDetails['ID'],PDO::PARAM_STR);
+		$absence->bindParam(':subject',$subjectDetails['ID'],PDO::PARAM_STR);
+		$absence->bindParam(':date',$date,PDO::PARAM_STR);
+		$absence->execute();
+	 } catch (Exception $e) {
+		echo $e;
+	 }	
 }
