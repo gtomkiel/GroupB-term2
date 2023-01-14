@@ -37,10 +37,15 @@ if(!isset($_SESSION['ID'])) {
 			</tr>
 			<?php 
 			
-			$stmt = $db->prepare('SELECT Subjects.subjectName, Attendance.date FROM Attendance INNER JOIN Subjects ON Attendance.subjectID = Subjects.ID WHERE studentID = :id');
-			$stmt->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
-			$stmt->execute();
-			$absences = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			try {
+				$stmt = $db->prepare('SELECT Subjects.subjectName, Attendance.date FROM Attendance INNER JOIN Subjects ON Attendance.subjectID = Subjects.ID WHERE studentID = :id');
+				$stmt->bindParam(':id',$_SESSION['ID'],PDO::PARAM_STR);
+				$stmt->execute();
+				
+				$absences = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			 } catch (Exception $e) {
+				echo $e;
+			 }
 
 			foreach ($absences as $absence) {
 				echo "	<tr>

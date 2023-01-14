@@ -6,7 +6,7 @@
    <title>Home</title>
 </head>
 <body id="gridContainer">
-<?php require_once('../src/utils/header.php'); ?>
+<?php require_once('src/utils/header.php'); ?>
 	<div id="main">
 		<div  class="currentEventContainer">
 			<div class="welcomeBox">De Morgenster,  welcome!</div>
@@ -20,12 +20,12 @@
 			<img class="img" src="/src/img/school 1.png" alt="Boy in class">  
 		</div>
 		<div class="eventBox">
-			<a href="#" class="event">
+			<a href="events.php" class="event">
 				<div>
 					Event
 				</div>
 			</a>
-			<a href="../login/" class="login">
+			<a href="/login/" class="login">
 				<div>
 					Login
 				</div>
@@ -36,6 +36,6 @@
 		<div class="emptyBox">
 		</div>
    </div>
-   <? require_once('../src/utils/footer.php'); ?>
+   <? require_once('src/utils/footer.php'); ?>
 </body>
 </html>

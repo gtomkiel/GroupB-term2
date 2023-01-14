@@ -4,11 +4,6 @@ require_once '../src/db/connect.php';
 
 session_start();
 
-if(!isset($_SESSION['ID'])) {
-   header('Location: /login/');
-   exit();
-}
-
 if($_SERVER["REQUEST_METHOD"] == "POST") {
    if($_POST["email"] == NULL && $_POST["password"] == NULL) {
       echo "Missing email address or password";
@@ -17,11 +12,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    $email = filter_input(INPUT_POST, "email");
    $password = filter_input(INPUT_POST, "password");
 
+   if(empty($email)){
+      $err[]="Please enter the email<br>";
+   }
+
+   if(empty($password)){
+      $err[]="Please enter the password<br>";
+   }
+
+   if(substr($email,-3,3) !== "com"){
+      $err[]="Enter a correct email address<br>";
+   }
+
    try {
       $stmt = $db->prepare('SELECT * FROM Users WHERE email = :email');
       $stmt->bindParam(':email', $email, PDO::PARAM_STR);
       $stmt->execute();
-
       $details = $stmt->fetch(PDO::FETCH_ASSOC);
    } catch (Exception $e) {
       echo $e;
@@ -39,8 +45,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
          $_SESSION["firstName"] = $details["firstName"];
          $_SESSION["secondName"] = $details["secondName"];
    
-         header('Location: ../dashboard/');
+         header('Location: ../dashboard');
          exit();
       }
    }
 }
+

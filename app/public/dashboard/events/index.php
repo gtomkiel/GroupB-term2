@@ -34,17 +34,23 @@ if(!isset($_SESSION['ID'])) {
 			<tr>
 				<th>Date</th>
 				<th>Name</th>
+				<th>Action</th>
 			</tr>
 			<?php 
 			
-			$stmt = $db->prepare('SELECT * FROM Events');
-			$stmt->execute();
-			$events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			try {
+				$stmt = $db->prepare('SELECT * FROM Events');
+				$stmt->execute();
+				$events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			 } catch (Exception $e) {
+				echo $e;
+			 }	
 
 			foreach ($events as $event) {
 				echo "	<tr>
 							<th>".$event['name']."</th>
 							<th>".$event['date']."</th>
+							<th><a href='delete.php?id=".$event['ID']."'>Delete</a></th>
 						</tr>";
 			}
 

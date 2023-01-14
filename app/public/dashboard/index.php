@@ -29,11 +29,15 @@ if(!isset($_SESSION['ID'])) {
 	</div>
 	<?php
 
-	$stmt = $db->prepare('SELECT accountType FROM Users WHERE ID = :id');
-	$stmt->bindParam(':id', $_SESSION['ID'], PDO::PARAM_STR);
-	$stmt->execute();
+	try {
+		$stmt = $db->prepare('SELECT accountType FROM Users WHERE ID = :id');
+		$stmt->bindParam(':id', $_SESSION['ID'], PDO::PARAM_STR);
+		$stmt->execute();
 
-	$type = $stmt->fetch(PDO::FETCH_ASSOC);
+		$type = $stmt->fetch(PDO::FETCH_ASSOC);
+	 } catch (Exception $e) {
+		echo $e;
+	 }
 
 	if($type['accountType'] == 'Parent') {
 		echo '	<div class="firstTextBox">
@@ -73,6 +77,22 @@ if(!isset($_SESSION['ID'])) {
 
 	if($type['accountType'] == 'Admin') {
 		echo '	<div class="firstTextBox">
+					<a href="grades/admin/">
+						<div class="grades">
+							<b>Grades</b>
+						</div>
+					</a>
+				</div>';
+
+		echo '	<div class="firstTextBox">
+					<a href="absences/admin">
+						<div class="grades">
+							<b>Absences</b>
+						</div>
+					</a>
+				</div>';
+
+		echo '	<div class="firstTextBox">
 					<a href="register/">
 						<div class="grades">
 							<b>Register</b>
@@ -88,10 +108,9 @@ if(!isset($_SESSION['ID'])) {
 					</a>
 				</div>';
 	}
-
-	?>
 	
-	<? require_once('../src/utils/footer.php'); ?>
-
+	require_once('../src/utils/footer.php'); 
+	
+	?>
 </body>
 </html>

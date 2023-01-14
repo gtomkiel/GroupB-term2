@@ -34,7 +34,7 @@ try {
 			<?php require_once('../../../src/utils/header.php');?>
 			<div class="info2">
 				<ul>	
-					<li><?=$subject['subjectName']?></li>
+					<li>Admin Page</li>
 					<li><a href="form.php">Add absence</a></li>
 					<li><a href="/dashboard/">Go back</a></li>
 				</ul>
@@ -44,12 +44,12 @@ try {
 			<tr>
 				<th>Student</th>
 				<th>Date</th>
+				<th>Action</th>
 			</tr>
 			<?php 
 
 			try {
-				$stmt = $db->prepare('SELECT Attendance.date, Users.firstName, Users.secondName FROM Attendance INNER JOIN Users ON Attendance.studentID = Users.ID WHERE subjectID = :id');
-				$stmt->bindParam(':id',$subject['ID'],PDO::PARAM_STR);
+				$stmt = $db->prepare('SELECT Attendance.ID, Attendance.date, Users.firstName, Users.secondName FROM Attendance INNER JOIN Users ON Attendance.studentID = Users.ID');
 				$stmt->execute();
 				$absences = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			 } catch (Exception $e) {
@@ -60,6 +60,7 @@ try {
 				echo "	<tr>
 							<th>".$absence['firstName']." ".$absence['secondName']."</th>
 							<th>".$absence['date']."</th>
+							<th><a href='delete.php?id=".$absence['ID']."'>Delete</a></th>
 						</tr>";
 			}
 
