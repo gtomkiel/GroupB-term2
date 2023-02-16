@@ -69,6 +69,27 @@ footer {
 ```
 
 ## Git
+### Contribution
+#### Branches
+Each issue should have their own separate branch. 
+  
+Name of the branch should be: ```issue[github issue]```  
+Example would be ```issue01``` for issue #1  
+
+#### Commits
+Only rule for the commits is to put a short, accurate description of the changes.
+
+#### Pull requests
+Pushing your commits directly to the main branch is locked.
+  
+In order to contribute you need to create the pull request:  
+* Make sure to include the name of the issue in title and put a description.  
+* Request @gtomkiel for review of the pull request.   
+* Create the pull request only when you are done with the specific issue.  
+* Don't combine multiple issues in a single request.
+
+If the request is accepted the code will be pulled into the main branch. 
+
 ### Setting up local repository
 1. Clone the repository
 ```
